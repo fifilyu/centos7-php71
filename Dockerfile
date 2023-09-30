@@ -34,7 +34,6 @@ RUN echo 'export PATH=/opt/rh/rh-php71/root/usr/bin:${PATH}' > /etc/profile.d/ph
 ####################
 RUN /opt/rh/rh-php71/root/usr/bin/php -v
 RUN /opt/rh/rh-php71/root/usr/bin/php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-RUN /opt/rh/rh-php71/root/usr/bin/php -r "if (hash_file('sha384', 'composer-setup.php') === 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 RUN /opt/rh/rh-php71/root/usr/bin/php composer-setup.php --install-dir=/opt/rh/rh-php71/root/usr/bin --filename=composer.phar
 RUN /opt/rh/rh-php71/root/usr/bin/php -r "unlink('composer-setup.php');"
 
